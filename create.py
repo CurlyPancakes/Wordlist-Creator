@@ -15,7 +15,7 @@ wordlist_file = "wordlist.txt"
 min_length = 1
 max_length = 5
 
-title = pyfiglet.figlet_format("WORDLIST CREATOR V. 1")
+title = pyfiglet.figlet_format("WORDLIST CREATOR V. 1 . 0")
 
 #-------INIT FUNCTION-------
 def init():
@@ -53,8 +53,6 @@ def readFiles():
         open(info_file,"w")
         close(401)
 
-
-
     try:
         with open(wordlist_file, "r") as file:
             for line in file.readlines():
@@ -78,6 +76,7 @@ def checkFiles():
 
 #-------GENERATE-------
 def generate():
+    global counter
     print(str(passwordstogenerate)+" possible combinations were found.")
     if(passwordstogenerate == 0):
         close(400)
@@ -87,20 +86,21 @@ def generate():
         for i in range(min_length,max_length):
             for password in map(''.join, itertools.product(infos, repeat=i)):
                 output.write(password+"\n")
-                counter =+ 1
+                counter += 1
                 percent = counter/passwordstogenerate*100
                 arrow = '-' * int(percent / 100 * 20 - 1) + '>'
                 spaces = ' ' * (20 - len(arrow))
 
                 stdout.write('Progress: [%s%s] %d %%\r' % (arrow, spaces, percent))
                 stdout.flush()
-    output.flush()
+        output.flush()
     finish()
 
 # -------FINISH-------
 def finish():
     print("Progress: [------------------->] 100%")
     print("[✔] "+str(counter)+" passwords have been successfully generated")
+    input("Press ANY key to exit")
     close(0)
 
 # -------MAIN-------
