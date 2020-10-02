@@ -1,4 +1,5 @@
 # Wordlist-Creator
+The software is only for education purposes. See the **[License](LICENSE.md)** for more information.
 - [Documentation](doc.md)
 ## Getting Started
 ### Installation
