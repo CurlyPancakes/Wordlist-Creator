@@ -80,7 +80,7 @@ def checkFiles():
 def generate():
     print(str(passwordstogenerate)+" possible combinations were found.")
     if(passwordstogenerate == 0):
-        close(399)
+        close(400)
     input("Press ANY key to start generating")
 
     with open(wordlist_file, "w") as output:
