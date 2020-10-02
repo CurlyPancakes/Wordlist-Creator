@@ -19,6 +19,8 @@ title = pyfiglet.figlet_format("WORDLIST CREATOR V. 1")
 
 #-------INIT FUNCTION-------
 def init():
+    global min_length
+    global max_length
     print(title)
     try:
         min_length = int(input("MIN LENGTH (Standard 1):"))
