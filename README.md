@@ -1,9 +1,4 @@
 # Wordlist-Creator
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 - [Documentation](doc.md)
 ## Getting Started
 ### Installation
@@ -18,7 +13,7 @@ MAX LENGTH (Standard 5):3
 
 6 possible combinations were found.
 ```
-##### INPUT PATTERN
+##### INPUT
 Hello\
 World
 ##### OUTPUT
