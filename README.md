@@ -5,7 +5,7 @@
 [![License: CC](https://img.shields.io/github/license/Zero-Developing/Wordlist-Creator)](https://github.com/Zero-Developing/Wordlist-Creator)
 
 ## Information
-Wordlist-Creator is an python based script, wich is currently under developing. There is no extra GUI at the moment.
+Wordlist-Creator is an python based script, which is currently under developing. There is no extra GUI at the moment.
 
 ## Getting Started
 - [Documentation](doc.md)
