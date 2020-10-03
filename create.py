@@ -77,7 +77,7 @@ def checkFiles():
 #-------GENERATE-------
 def generate():
     global counter
-    print(str(passwordstogenerate)+" possible combinations were found.")
+    print(str(passwordstogenerate)+" possible word combinations were found.")
     if(passwordstogenerate == 0):
         close(400)
     input("Press ANY key to start generating")
@@ -99,7 +99,7 @@ def generate():
 # -------FINISH-------
 def finish():
     print("Progress: [------------------->] 100%")
-    print("[✔] "+str(counter)+" passwords have been successfully generated")
+    print("[✔] "+str(counter)+" word combinations have been successfully generated")
     input("Press ANY key to exit")
     close(0)
 
