@@ -1,0 +1,12 @@
+Hello
+World
+Python
+HelloHello
+HelloWorld
+HelloPython
+WorldHello
+WorldWorld
+WorldPython
+PythonHello
+PythonWorld
+PythonPython
