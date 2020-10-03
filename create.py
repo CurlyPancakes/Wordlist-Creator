@@ -2,6 +2,7 @@
 import itertools
 from sys import stdout
 import pyfiglet
+import argparse
 
 #-------VARIABLES-------
 infos = []
@@ -12,24 +13,45 @@ passwordstogenerate = 0
 info_file = "infos.txt"
 wordlist_file = "wordlist.txt"
 
-min_length = 1
-max_length = 5
+min_length = 0
+max_length = 0
 
 title = pyfiglet.figlet_format("WORDLIST CREATOR V. 1 . 0")
+
+#-------ARG PARSER-------
+def argparser():
+    global min_length
+    global max_length
+
+    parser = argparse.ArgumentParser(description='Wordlist-Creator is used to create long word combinations lists.')
+
+    parser.add_argument('--min', type=int, help='MIN_LENGTH for the Wordlist-Creator.')
+    parser.add_argument('--max', type=int, help='MAX_LENGTH for the Wordlist-Creator.')
+
+    args = parser.parse_args()
+
+    if(args.max is not None):
+        max_length = args.max
+    if(args.min is not None):
+        min_length = args.min
 
 #-------INIT FUNCTION-------
 def init():
     global min_length
     global max_length
     print(title)
-    try:
-        min_length = int(input("MIN LENGTH (Standard 1):"))
-    except:
-        print("Used standard length 1")
-    try:
-        max_length = int(input("MAX LENGTH (Standard 5):"))
-    except:
-        print("Used standard length 5")
+    if(min_length == 0):
+        try:
+            min_length = int(input("MIN LENGTH (Standard 1):"))
+        except:
+            print("Used standard length 1")
+            min_length = 1
+    if(max_length == 0):
+        try:
+            max_length = int(input("MAX LENGTH (Standard 5):"))
+        except:
+            print("Used standard length 5")
+            max_length = 5
 
 #-------EXIT-------
 def close(error_code):
@@ -99,12 +121,13 @@ def generate():
 # -------FINISH-------
 def finish():
     print("Progress: [------------------->] 100%")
-    print("[✔] "+str(counter)+" word combinations have been successfully generated")
+    print("[✔] "+str(counter)+" word combinations have been successfully generated.")
     input("Press ANY key to exit")
     close(0)
 
 # -------MAIN-------
 if __name__ == '__main__':
+    argparser()
     init()
     readFiles()
     checkFiles()
