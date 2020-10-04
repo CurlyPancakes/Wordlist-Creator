@@ -11,32 +11,31 @@ Wordlist-Creator is an python based script, which is currently under developing.
 - [Documentation](doc.md)
 
 ### Installation
-```
+```bash
 git clone https://github.com/Zero-Developing/Wordlist-Creator
 pip install pyfiglet
+cd Wordlist-Creator
 ```
 
 ### Usage
-```
-cd Wordlist-Creator
-```
+
 #### Version 1(Fast way)
-```
+```bash
 python create.py --min MIN_LENGTH --max MAX_LENGTH
 ```
 You can even use only one parameter.
-```
+```bash
 python create.py --max MAX_LENGTH
 ```
 #### Version 2(Slow way)
-```
+```bash
 python create.py
 ```
 
 ### Example
-So let's test it out. We will generate a wordlist from [Infos.txt](infos.txt). The output will be stored in the [wordlist.txt](wordlist.txt).\
+So let's test it out. We will generate a wordlist from [Infos.txt](infos.txt). The output will be stored in the [Wordlist.txt](wordlist.txt).\
 **Input->** [Infos.txt](infos.txt)
-```
+```bash
 python create.py --min 1 --max 3
 ```
 **Output->** [Wordlist.txt](wordlist.txt)
