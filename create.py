@@ -70,7 +70,7 @@ def readFiles():
             for line in file.readlines():
                 infos.append(line.strip())
 
-            for i in range(min_length, max_length):
+            for i in range(min_length, max_length+1):
                 combinations += len(infos) ** i
     except:
         open(info_file,"w")
