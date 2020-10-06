@@ -21,11 +21,11 @@ cd Wordlist-Creator
 
 #### Version 1(Fast way)
 ```bash
-python create.py --min MIN_LENGTH --max MAX_LENGTH
+python create.py --min MIN_AMOUNT --max MAX_AMOUNT
 ```
 You can even use only one parameter.
 ```bash
-python create.py --max MAX_LENGTH
+python create.py --max MAX_AMOUNT
 ```
 #### Version 2(Slow way)
 ```bash
