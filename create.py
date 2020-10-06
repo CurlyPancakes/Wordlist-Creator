@@ -8,7 +8,7 @@ import argparse
 infos = []
 wordlist = []
 counter = 0
-passwordstogenerate = 0
+combinations = 0
 
 info_file = "infos.txt"
 wordlist_file = "wordlist.txt"
@@ -25,8 +25,8 @@ def argparser():
 
     parser = argparse.ArgumentParser(description='Wordlist-Creator is used to create long word combinations lists.')
 
-    parser.add_argument('--min', type=int, help='MIN_LENGTH for the Wordlist-Creator.')
-    parser.add_argument('--max', type=int, help='MAX_LENGTH for the Wordlist-Creator.')
+    parser.add_argument('--min', type=int, help='MIN_AMOUNT of items in one word combination.')
+    parser.add_argument('--max', type=int, help='MAX_AMOUNT of items in one word combination.')
 
     args = parser.parse_args()
 
@@ -42,15 +42,15 @@ def init():
     print(title)
     if(min_length == 0):
         try:
-            min_length = int(input("MIN LENGTH (Standard 1):"))
+            min_length = int(input("MIN AMOUNT (Standard 1):"))
         except:
-            print("Used standard length 1")
+            print("Used standard amount 1")
             min_length = 1
     if(max_length == 0):
         try:
-            max_length = int(input("MAX LENGTH (Standard 5):"))
+            max_length = int(input("MAX AMOUNT (Standard 5):"))
         except:
-            print("Used standard length 5")
+            print("Used standard amount 5")
             max_length = 5
 
 #-------EXIT-------
@@ -59,18 +59,19 @@ def close(error_code):
         exit(error_code)
     else:
         print("ERROR CODE->"+str(error_code))
+        input("Press ANY key to exit")
         exit(error_code)
 
 #-------READ FILES-------
 def readFiles():
-    global passwordstogenerate
+    global combinations
     try:
         with open(info_file, "r") as file:
             for line in file.readlines():
                 infos.append(line.strip())
 
             for i in range(min_length, max_length):
-                passwordstogenerate += len(infos) ** i
+                combinations += len(infos) ** i
     except:
         open(info_file,"w")
         close(401)
@@ -99,17 +100,19 @@ def checkFiles():
 #-------GENERATE-------
 def generate():
     global counter
-    print(str(passwordstogenerate)+" possible word combinations were found.")
-    if(passwordstogenerate == 0):
+
+    print(str(combinations)+" possible word combinations were found.")
+
+    if(combinations == 0):
         close(400)
     input("Press ANY key to start generating")
 
     with open(wordlist_file, "w") as output:
-        for i in range(min_length,max_length):
+        for i in range(min_length,max_length+1):
             for password in map(''.join, itertools.product(infos, repeat=i)):
                 output.write(password+"\n")
                 counter += 1
-                percent = counter/passwordstogenerate*100
+                percent = counter/combinations*100
                 arrow = '-' * int(percent / 100 * 20 - 1) + '>'
                 spaces = ' ' * (20 - len(arrow))
 
