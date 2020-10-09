@@ -1,4 +1,5 @@
 # Documentation
+The software uses standard wise multi-threading. A few files will be generated and after the software had done the generation, then its going to merge them all into one file.
 ## Error-Codes
 #### 403
 The program found no input information. (Standard input file->**infos.txt**)
